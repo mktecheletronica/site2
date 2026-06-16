@@ -153,11 +153,12 @@
 
         .card-img-placeholder {
             width: 100%;
-            height: 200px;
+            height: auto; /* Deixa a altura proporcional ao aspecto original da foto */
+            max-height: 250px; /* Limita uma altura máxima para não esticar demais em telas grandes */
             background-color: #e2e8f0;
             border-radius: 12px;
             margin-bottom: 20px;
-            object-fit: cover;
+            object-fit: contain; /* Garante que a imagem apareça inteira, sem cortes nas laterais */
         }
 
         .card h2 {
