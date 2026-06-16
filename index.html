@@ -361,10 +361,9 @@
             <img src="logo.png" alt="MKTECH" onerror="this.src='https://placehold.co/200x50/e2e8f0/64748b?text=MKTECH+LOGO'">
         </div>
         <div class="nav-links">
-            <button onclick="showTab('log-multec')" id="btn-log-multec" class="nav-tab">Log Multec</button>
-            <button onclick="showTab('log-motronic')" id="btn-log-motronic" class="nav-tab">Log Motronic</button>
-            <button onclick="showTab('manuais')" id="btn-manuais" class="nav-tab">Manuais</button>
-            <button onclick="showTab('downloads')" id="btn-downloads" class="nav-tab">Downloads</button>
+            <button onclick="showTab('log-multec')" id="btn-log-multec" class="nav-tab">Log Multec 700</button>
+            <button onclick="showTab('log-motronic')" id="btn-log-motronic" class="nav-tab">Log Motronic 1.5.4</button>
+            <button onclick="showTab('manuais-downloads')" id="btn-manuais-downloads" class="nav-tab">Manuais e Downloads</button>
             <a href="https://wa.me/5551983547295" target="_blank" class="nav-tab">Suporte</a>
         </div>
     </nav>
@@ -372,33 +371,33 @@
     <!-- ABA: HOME (PORTAL) -->
     <main id="home" class="tab-content page-container" style="display: block;">
         <div class="hero">
-            <img src="logo.png" alt="Logotipo MKTECH" onerror="this.src='https://placehold.co/600x150/003153/ffffff?text=MKTECH+ELETRÔNICA'">
+            <img src="logo2.png" alt="Logotipo MKTECH" onerror="this.style.display='none'">
         </div>
 
         <!-- Equipamentos -->
         <div class="dashboard-grid">
             <!-- MULTEC 700 -->
-        <div class="card">
-            <img src="foto-multec.jpg" alt="Multec 700" class="card-img-placeholder" onerror="this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Foto+Multec'">
-            <h2>Multec 700 DashBoard</h2>
-            <p>Análise completa em tempo real para injeção eletrônica Multec 700. Monitore sensores e atuadores com precisão.</p>
-            <button onclick="showTab('log-multec')" class="btn-action btn-log">Abrir Leitor de Log</button>
-            <button onclick="showTab('manuais')" class="btn-action btn-manual">Visualizar Manuais</button>
-            <a href="#" class="btn-action btn-buy">Onde Comprar</a>
+            <div class="card">
+                <img src="foto-multec.jpg" alt="Multec 700" class="card-img-placeholder" onerror="this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Foto+Multec'">
+                <h2>Multec 700 DashBoard</h2>
+                <p>Análise completa em tempo real para injeção eletrônica Multec 700. Monitore sensores e atuadores com precisão.</p>
+                <button onclick="showTab('log-multec')" class="btn-action btn-log">Abrir Leitor de Log</button>
+                <button onclick="showTab('manuais-downloads')" class="btn-action btn-manual">Visualizar Manuais</button>
+                <a href="#" class="btn-action btn-buy">Onde Comprar</a>
+            </div>
+
+            <!-- MOTRONIC 1.5.4 -->
+            <div class="card">
+                <img src="foto-motronic.jpg" alt="Motronic 1.5.4" class="card-img-placeholder" onerror="this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Foto+Motronic'">
+                <h2>Motronic 1.5.4 DashBoard</h2>
+                <p>Ferramenta de diagnóstico avançado para sistemas Motronic 1.5.4. Solução definitiva para sua oficina.</p>
+                <button onclick="showTab('log-motronic')" class="btn-action btn-log">Abrir Leitor de Log</button>
+                <button onclick="showTab('manuais-downloads')" class="btn-action btn-manual">Visualizar Manuais</button>
+                <a href="#" class="btn-action btn-buy">Onde Comprar</a>
+            </div>
         </div>
 
-        <!-- MOTRONIC 1.5.4 -->
-        <div class="card">
-            <img src="foto-motronic.jpg" alt="Motronic 1.5.4" class="card-img-placeholder" onerror="this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Foto+Motronic'">
-            <h2>Motronic 1.5.4 DashBoard</h2>
-            <p>Ferramenta de diagnóstico avançado para sistemas Motronic 1.5.4. Solução definitiva para sua oficina.</p>
-            <button onclick="showTab('log-motronic')" class="btn-action btn-log">Abrir Leitor de Log</button>
-            <button onclick="showTab('manuais')" class="btn-action btn-manual">Visualizar Manuais</button>
-            <a href="#" class="btn-action btn-buy">Onde Comprar</a>
-        </div>
-    </div>
-
-    <!-- Serviços -->
+        <!-- Serviços -->
     <div class="services-section">
         <h2>Projetos de Placas e Montagem SMD</h2>
         <p>Desenvolvemos projetos de placas de circuito impresso (PCI) sob medida para a sua necessidade. Realizamos também a montagem de componentes SMD em pequenos lotes ou protótipos, utilizando equipamento automatizado próprio (Pick and Place). Se você precisa de uma solução prática e confiável para tirar seu projeto de eletrônica do papel, entre em contato para fazermos um orçamento.</p>
@@ -426,82 +425,86 @@
         <iframe src="https://motronic.mktecheletronica.com.br/?embed=true" allow="clipboard-read;clipboard-write;fullscreen"></iframe>
     </div>
 
-    <!-- ABA: MANUAIS -->
-    <div id="manuais" class="tab-content page-container">
-        <div class="split-grid">
-            <!-- Coluna Multec -->
-            <div>
-                <h2 class="section-title">Manuais - Multec 700</h2>
-                <div class="list">
-                    <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Manual.Multec.700.DashBoard.V3.0.pdf" target="_blank" class="list-item" style="border-left: 4px solid #ef4444;">
-                        Manual Multec 700 DashBoard 3.0
-                        <small>Versão mais recente - PDF</small>
-                    </a>
-                    <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Manual.Multec.700.DashBoard.V2.1.pdf" target="_blank" class="list-item" style="border-left: 4px solid #ef4444;">
-                        Manual Multec 700 DashBoard 2.1
-                        <small>Versão anterior - PDF</small>
-                    </a>
-                    <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Manual.de.atualizacao.Multec700.DashBoard.2.1.pdf" target="_blank" class="list-item" style="border-left: 4px solid #f59e0b;">
-                        Guia de Atualização (V2.1 → V3.0)
-                        <small>Instruções passo a passo</small>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Coluna Motronic -->
-            <div>
-                <h2 class="section-title">Manuais - Motronic 1.5.4</h2>
-                <div class="list">
-                    <a href="https://drive.google.com/file/d/12Hipq3mc_w8f9jOxnLBQHft8GAioDMfs/view?usp=sharing" target="_blank" class="list-item" style="border-left: 4px solid #ef4444;">
-                        Manual Motronic 1.5.4 DashBoard
-                        <small>Versão em PDF</small>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ABA: DOWNLOADS -->
-    <div id="downloads" class="tab-content page-container">
-        <div class="split-grid">
-            <!-- Coluna Multec -->
-            <div>
-                <h2 class="section-title">Downloads - Multec 700</h2>
-                <div class="list">
-                    <!-- Link normal Play Store -->
-                    <a href="https://play.google.com/store/apps/details?id=mktech.multec700.dashboard&hl=pt_BR" target="_blank" class="list-item" style="border-left: 4px solid #10b981;">
-                        App Android Multec DashBoard
-                        <small>Disponível na Google Play Store</small>
-                    </a>
-                    
-                    <!-- Bloco Integrado Windows -->
-                    <div class="list-item" style="border-left: 4px solid #3b82f6; cursor: default;">
-                        <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Atualizacao.Multec700.DashBoard.2.1_3.0.exe" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                            <span style="display: block; font-weight: 600; font-size: 1rem; color: var(--text-main);">Firmware Update Tool (Windows)</span>
-                            <small style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Atualizador 2.1 → 3.0 (.exe)</small>
+    <!-- ABA: MANUAIS E DOWNLOADS (UNIFICADOS) -->
+    <div id="manuais-downloads" class="tab-content page-container">
+        <!-- SEÇÃO: MANUAIS (NO TOPO) -->
+        <div style="margin-bottom: 60px;">
+            <h2 class="section-title" style="font-size: 1.6rem; border-bottom: 2px solid var(--primary); margin-bottom: 25px;">Manuais Técnicos</h2>
+            <div class="split-grid">
+                <!-- Coluna Multec -->
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 1.2rem;">Multec 700</h3>
+                    <div class="list">
+                        <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Manual.Multec.700.DashBoard.V3.0.pdf" target="_blank" class="list-item" style="border-left: 4px solid #ef4444;">
+                            Manual Multec 700 DashBoard 3.0
+                            <small>Versão mais recente - PDF</small>
                         </a>
-                        
-                        <!-- Conteúdo de Segurança Interno do Botão/Card -->
-                        <div style="border-top: 1px solid #e2e8f0; margin-top: 12px; padding-top: 12px;">
-                            <span style="display: block; font-size: 0.75rem; color: #475569; line-height: 1.4; font-weight: normal; margin-bottom: 8px;">
-                                ⚠️ Ao instalar no Windows, o SmartScreen pode bloquear. Clique em <b>"Mais Informações"</b> e depois em <b>"Executar assim mesmo"</b>.
-                            </span>
-                            <a href="https://www.virustotal.com/gui/file/d96822b4befbb53cbd1874da38eb425ee144eb2ddd7176837e7653b2f0208088" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
-                                🛡️ Ver relatório de integridade VirusTotal
-                            </a>
-                        </div>
+                        <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Manual.Multec.700.DashBoard.V2.1.pdf" target="_blank" class="list-item" style="border-left: 4px solid #ef4444;">
+                            Manual Multec 700 DashBoard 2.1
+                            <small>Versão anterior - PDF</small>
+                        </a>
+                        <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Manual.de.atualizacao.Multec700.DashBoard.2.1.pdf" target="_blank" class="list-item" style="border-left: 4px solid #f59e0b;">
+                            Guia de Atualização (V2.1 → V3.0)
+                            <small>Instruções passo a passo</small>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coluna Motronic -->
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 1.2rem;">Motronic 1.5.4</h3>
+                    <div class="list">
+                        <a href="https://drive.google.com/file/d/12Hipq3mc_w8f9jOxnLBQHft8GAioDMfs/view?usp=sharing" target="_blank" class="list-item" style="border-left: 4px solid #ef4444;">
+                            Manual Motronic 1.5.4 DashBoard
+                            <small>Versão em PDF</small>
+                        </a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Coluna Motronic -->
-            <div>
-                <h2 class="section-title">Downloads - Motronic 1.5.4</h2>
-                <div class="list">
-                    <a href="https://play.google.com/store/apps/details?id=mktech.motronic.dashboard" target="_blank" class="list-item" style="border-left: 4px solid #10b981;">
-                        App Android Motronic DashBoard
-                        <small>Disponível na Google Play Store</small>
-                    </a>
+        <!-- SEÇÃO: DOWNLOADS (ABAIXO) -->
+        <div>
+            <h2 class="section-title" style="font-size: 1.6rem; border-bottom: 2px solid var(--primary); margin-bottom: 25px;">Downloads de Aplicativos e Software</h2>
+            <div class="split-grid">
+                <!-- Coluna Multec -->
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 1.2rem;">Multec 700</h3>
+                    <div class="list">
+                        <a href="https://play.google.com/store/apps/details?id=mktech.multec700.dashboard&hl=pt_BR" target="_blank" class="list-item" style="border-left: 4px solid #10b981;">
+                            App Android Multec DashBoard
+                            <small>Disponível na Google Play Store</small>
+                        </a>
+                        
+                        <!-- Bloco Integrado Windows -->
+                        <div class="list-item" style="border-left: 4px solid #3b82f6; cursor: default;">
+                            <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Atualizacao.Multec700.DashBoard.2.1_3.0.exe" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                                <span style="display: block; font-weight: 600; font-size: 1rem; color: var(--text-main);">Firmware Update Tool (Windows)</span>
+                                <small style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Atualizador 2.1 → 3.0 (.exe)</small>
+                            </a>
+                            
+                            <!-- Conteúdo de Segurança Interno do Botão/Card -->
+                            <div style="border-top: 1px solid #e2e8f0; margin-top: 12px; padding-top: 12px;">
+                                <span style="display: block; font-size: 0.75rem; color: #475569; line-height: 1.4; font-weight: normal; margin-bottom: 8px;">
+                                    ⚠️ Ao instalar no Windows, o SmartScreen pode bloquear. Clique em <b>"Mais Informações"</b> e depois em <b>"Executar assim mesmo"</b>.
+                                </span>
+                                <a href="https://www.virustotal.com/gui/file/d96822b4befbb53cbd1874da38eb425ee144eb2ddd7176837e7653b2f0208088" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                                    🛡️ Ver relatório de integridade VirusTotal
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Motronic -->
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 1.2rem;">Motronic 1.5.4</h3>
+                    <div class="list">
+                        <a href="https://play.google.com/store/apps/details?id=mktech.motronic.dashboard" target="_blank" class="list-item" style="border-left: 4px solid #10b981;">
+                            App Android Motronic DashBoard
+                            <small>Disponível na Google Play Store</small>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
