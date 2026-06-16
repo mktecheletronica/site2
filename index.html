@@ -152,13 +152,13 @@
         }
 
         .card-img-placeholder {
-            width: 100%;
-            height: auto; /* Deixa a altura proporcional ao aspecto original da foto */
-            max-height: 250px; /* Limita uma altura máxima para não esticar demais em telas grandes */
-            background-color: var(--white);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            object-fit: contain; /* Garante que a imagem apareça inteira, sem cortes nas laterais */
+            max-width: 100%; /* Impede a imagem de esticar além do tamanho original dela */
+            height: auto; /* Mantém a proporção perfeita de altura */
+            max-height: 250px; /* Limita a altura máxima para não esticar demais */
+            background-color: var(--white); /* Fundo branco para misturar com o card */
+            object-fit: contain; /* Garante que a imagem apareça inteira */
+            margin: 0 auto 20px auto; /* Centraliza a imagem horizontalmente e dá margem abaixo */
+            display: block;
         }
 
         .card h2 {
