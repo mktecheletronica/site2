@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- Meta Tags para o WhatsApp/Redes Sociais -->
+    <meta property="og:title" content="MKTECH Eletrônica">
+    <meta property="og:description" content="Soluções em Diagnóstico Automotivo, Projetos de Placas e Montagem SMD.">
+    <meta property="og:image" content="https://seusite.com.br/logo.png">
+
+    <title>MKTECH Eletrônica</title>
+    <style>
+        :root {
+            /* Paleta Azul Noturno e Verde Esmeralda Profundo */
+            --primary: #003153; 
+            --primary-dark: #001f35; 
+            --primary-light: #e6f0f8;
+            --bg: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --buy-btn: #1b7a43; /* Verde Médio/Escuro Elegante */
+            --buy-btn-hover: #145c32; /* Verde ainda mais profundo no hover */
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        /* --- NAVEGAÇÃO --- */
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0 2rem;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .nav-brand img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-tab {
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-tab:hover, .nav-tab.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        /* --- ESTRUTURA GLOBAL DE ABAS --- */
+        .tab-content {
+            display: none;
+        }
+
+        .page-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .log-frame-container {
+            height: calc(100vh - 70px);
+            width: 100%;
+        }
+
+        .log-frame-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- PÁGINA INICIAL --- */
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Grid de Produtos */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .card h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        /* Botões Início */
+        .btn-action {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: 0.2s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .btn-log {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-log:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-manual {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-manual:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-buy {
+            background: var(--buy-btn);
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .btn-buy:hover {
+            background: var(--buy-btn-hover);
+        }
+
+        /* Seção de Serviços SMD */
+        .services-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            padding: 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .services-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .services-section p {
+            color: #cbd5e1;
+            max-width: 600px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .services-img {
+            width: 100%;
+            max-width: 500px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-whatsapp {
+            background: var(--buy-btn); /* Usando o mesmo verde esmeralda elegante */
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: 0.2s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+        }
+        .btn-whatsapp:hover {
+            background: var(--buy-btn-hover);
+        }
+
+        /* --- LISTAS DE MANUAIS E DOWNLOADS --- */
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .list-item {
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            border-radius: 8px;
+            background: var(--white);
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+
+        .list-item:hover {
+            border-color: var(--primary);
+            transform: translateX(4px);
+            box-shadow: var(--shadow);
+        }
+
+        .list-item small {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-weight: normal;
+        }
+
+        .help-text {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+        .help-text b { color: var(--primary); }
+
+        .security-link {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+        .security-link:hover { text-decoration: underline; }
+
+        /* FOOTER */
+        .footer-minimal {
+            text-align: center;
+            margin-top: 60px;
+            padding-bottom: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 850px) {
+            .nav-links { display: none; }
+            .split-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGAÇÃO -->
+    <nav>
+        <div onclick="showTab('home')" class="nav-brand">
+            <img src="logo.png" alt="MKTECH" onerror="this.src='https://placehold.co/200x50/e2e8f0/64748b?text=MKTECH+LOGO'">
+        </div>
+        <div class="nav-links">
+            <button onclick="showTab('log-multec')" id="btn-log-multec" class="nav-tab">Log Multec</button>
+            <button onclick="showTab('log-motronic')" id="btn-log-motronic" class="nav-tab">Log Motronic</button>
+            <button onclick="showTab('manuais')" id="btn-manuais" class="nav-tab">Manuais</button>
+            <button onclick="showTab('downloads')" id="btn-downloads" class="nav-tab">Downloads</button>
+            <a href="https://wa.me/5551983547295" target="_blank" class="nav-tab">Suporte</a>
+        </div>
+    </nav>
+
+    <!-- ABA: HOME (PORTAL) -->
+    <main id="home" class="tab-content page-container" style="display: block;">
+        <div class="hero">
+            <img src="logo.png" alt="Logotipo MKTECH" onerror="this.src='https://placehold.co/600x150/003153/ffffff?text=MKTECH+ELETRÔNICA'">
+        </div>
+
+        <!-- Equipamentos -->
+        <div class="dashboard-grid">
+            <!-- MULTEC 700 -->
+        <div class="card">
+            <img src="foto-multec.jpg" alt="Multec 700" class="card-img-placeholder" onerror="this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Foto+Multec'">
+            <h2>Multec 700 DashBoard</h2>
+            <p>Análise completa em tempo real para injeção eletrônica Multec 700. Monitore sensores e atuadores com precisão.</p>
+            <button onclick="showTab('log-multec')" class="btn-action btn-log">Abrir Leitor de Log</button>
+            <button onclick="showTab('manuais')" class="btn-action btn-manual">Visualizar Manuais</button>
+            <a href="#" class="btn-action btn-buy">Onde Comprar</a>
+        </div>
+
+        <!-- MOTRONIC 1.5.4 -->
+        <div class="card">
+            <img src="foto-motronic.jpg" alt="Motronic 1.5.4" class="card-img-placeholder" onerror="this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Foto+Motronic'">
+            <h2>Motronic 1.5.4 DashBoard</h2>
+            <p>Ferramenta de diagnóstico avançado para sistemas Motronic 1.5.4. Solução definitiva para sua oficina.</p>
+            <button onclick="showTab('log-motronic')" class="btn-action btn-log">Abrir Leitor de Log</button>
+            <button onclick="showTab('manuais')" class="btn-action btn-manual">Visualizar Manuais</button>
+            <a href="#" class="btn-action btn-buy">Onde Comprar</a>
+        </div>
+    </div>
+
+    <!-- Serviços -->
+    <div class="services-section">
+        <h2>Projetos de Placas e Montagem SMD</h2>
+        <p>Desenvolvemos projetos de placas de circuito impresso (PCI) sob medida para a sua necessidade. Realizamos também a montagem de componentes SMD em pequenos lotes ou protótipos, utilizando equipamento automatizado próprio (Pick and Place). Se você precisa de uma solução prática e confiável para tirar seu projeto de eletrônica do papel, entre em contato para fazermos um orçamento.</p>
+        
+        <!-- Foto da placa / Pick and Place -->
+        <img src="foto-smd.jpg" alt="Montagem SMD" class="services-img" onerror="this.src='https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=800'">
+        
+        <a href="https://wa.me/5551983547295?text=Olá,%20gostaria%20de%20um%20orçamento%20para%20projeto/montagem%20de%20placas." target="_blank" class="btn-whatsapp">
+            Solicitar Orçamento de Projeto/Montagem
+        </a>
+    </div>
+
+    <footer class="footer-minimal">
+            &copy; 2026 - MKTECH ELETRÔNICA
+        </footer>
+    </main>
+
+    <!-- ABA: LEITOR DE LOG MULTEC -->
+    <div id="log-multec" class="tab-content log-frame-container">
+        <iframe src="https://multec.mktecheletronica.com.br/?embed=true" allow="clipboard-read;clipboard-write;fullscreen"></iframe>
+    </div>
+
+    <!-- ABA: LEITOR DE LOG MOTRONIC -->
+    <div id="log-motronic" class="tab-content log-frame-container">
+        <iframe src="https://motronic.mktecheletronica.com.br/?embed=true" allow="clipboard-read;clipboard-write;fullscreen"></iframe>
+    </div>
+
+    <!-- ABA: MANUAIS -->
+    <div id="manuais" class="tab-content page-container">
+        <div class="split-grid">
+            <!-- Coluna Multec -->
+            <div>
+                <h2 class="section-title">Manuais - Multec 700</h2>
+                <div class="list">
+                    <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Manual.Multec.700.DashBoard.V3.0.pdf" target="_blank" class="list-item" style="border-left: 4px solid #ef4444;">
+                        Manual Multec 700 DashBoard 3.0
+                        <small>Versão mais recente - PDF</small>
+                    </a>
+                    <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Manual.Multec.700.DashBoard.V2.1.pdf" target="_blank" class="list-item" style="border-left: 4px solid #ef4444;">
+                        Manual Multec 700 DashBoard 2.1
+                        <small>Versão anterior - PDF</small>
+                    </a>
+                    <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Manual.de.atualizacao.Multec700.DashBoard.2.1.pdf" target="_blank" class="list-item" style="border-left: 4px solid #f59e0b;">
+                        Guia de Atualização (V2.1 → V3.0)
+                        <small>Instruções passo a passo</small>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Coluna Motronic -->
+            <div>
+                <h2 class="section-title">Manuais - Motronic 1.5.4</h2>
+                <div class="list">
+                    <a href="https://drive.google.com/file/d/12Hipq3mc_w8f9jOxnLBQHft8GAioDMfs/view?usp=sharing" target="_blank" class="list-item" style="border-left: 4px solid #ef4444;">
+                        Manual Motronic 1.5.4 DashBoard
+                        <small>Versão em PDF</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABA: DOWNLOADS -->
+    <div id="downloads" class="tab-content page-container">
+        <div class="split-grid">
+            <!-- Coluna Multec -->
+            <div>
+                <h2 class="section-title">Downloads - Multec 700</h2>
+                <div class="list">
+                    <!-- Link normal Play Store -->
+                    <a href="https://play.google.com/store/apps/details?id=mktech.multec700.dashboard&hl=pt_BR" target="_blank" class="list-item" style="border-left: 4px solid #10b981;">
+                        App Android Multec DashBoard
+                        <small>Disponível na Google Play Store</small>
+                    </a>
+                    
+                    <!-- Bloco Integrado Windows -->
+                    <div class="list-item" style="border-left: 4px solid #3b82f6; cursor: default;">
+                        <a href="https://github.com/mktecheletronica/site/releases/download/v3.0/Atualizacao.Multec700.DashBoard.2.1_3.0.exe" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                            <span style="display: block; font-weight: 600; font-size: 1rem; color: var(--text-main);">Firmware Update Tool (Windows)</span>
+                            <small style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Atualizador 2.1 → 3.0 (.exe)</small>
+                        </a>
+                        
+                        <!-- Conteúdo de Segurança Interno do Botão/Card -->
+                        <div style="border-top: 1px solid #e2e8f0; margin-top: 12px; padding-top: 12px;">
+                            <span style="display: block; font-size: 0.75rem; color: #475569; line-height: 1.4; font-weight: normal; margin-bottom: 8px;">
+                                ⚠️ Ao instalar no Windows, o SmartScreen pode bloquear. Clique em <b>"Mais Informações"</b> e depois em <b>"Executar assim mesmo"</b>.
+                            </span>
+                            <a href="https://www.virustotal.com/gui/file/d96822b4befbb53cbd1874da38eb425ee144eb2ddd7176837e7653b2f0208088" target="_blank" style="color: var(--primary); text-decoration: none; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;">
+                                🛡️ Ver relatório de integridade VirusTotal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna Motronic -->
+            <div>
+                <h2 class="section-title">Downloads - Motronic 1.5.4</h2>
+                <div class="list">
+                    <a href="https://play.google.com/store/apps/details?id=mktech.motronic.dashboard" target="_blank" class="list-item" style="border-left: 4px solid #10b981;">
+                        App Android Motronic DashBoard
+                        <small>Disponível na Google Play Store</small>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE CONTROLE DAS ABAS -->
+    <script>
+        function showTab(tabId) {
+            // Esconde todas as abas
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
+
+            // Remove classe ativa de todos os botões do menu
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Mostra a aba selecionada
+            document.getElementById(tabId).style.display = 'block';
+
+            // Adiciona classe ativa no botão clicado (se ele existir no menu superior)
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if(activeBtn) {
+                activeBtn.classList.add('active');
+            }
+
+            // Gerencia barra de rolagem (remove nos logs, volta nas páginas normais)
+            if (tabId.startsWith('log')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Rola pro topo da página
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>
